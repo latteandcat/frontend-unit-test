@@ -1,0 +1,68 @@
+{
+  "name": "frontend-unit-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit-single": "vue-cli-service test:unit",
+    "test:unit-watch": "vue-cli-service test:unit --watch --reporter nyan",
+    "test:karma": "karma start",
+    "test:cover-single": "nyc vue-cli-service test:unit",
+    "test:cover-watch": "nodemon --exec nyc vue-cli-service test:unit"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-unit-mocha": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "@vue/eslint-config-standard": "^4.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-istanbul": "^5.1.4",
+    "chai": "^4.1.2",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "karma": "^4.1.0",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-spec-reporter": "0.0.32",
+    "karma-webpack": "^4.0.2",
+    "nodemon": "^1.19.1",
+    "nyc": "^14.1.1",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 90,
+    "statements": 90,
+    "functions": 90,
+    "branches": 90,
+    "include": [
+      "src/**/*.{js,vue}"
+    ],
+    "exclude": [
+      "src/*.js"
+    ],
+    "reporter": [
+      "text",
+      "lcov",
+      "text-summary"
+    ],
+    "extension": [
+      ".js",
+      ".vue"
+    ],
+    "cache": true,
+    "all": true
+  }
+}
